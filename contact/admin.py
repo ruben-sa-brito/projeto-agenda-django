@@ -13,5 +13,5 @@ class ContactAdmin(admin.ModelAdmin):
     ordering = ('id',)
     search_fields = ('id', 'first_name',)
     list_display_links = ('id', 'first_name',)
-    list_per_page = 1
+    list_per_page = 20
     list_max_show_all = 100
