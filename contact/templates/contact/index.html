@@ -1,15 +1,15 @@
 {% extends 'global/base.html' %}
 
 {% block content %} 
-    <h1>TESTE</h1>
+{% if page_obj %}
 
     <div class="responsive-table">
-
+        
         <table class="contacts-table">
             <caption class="table-caption"> 
                 Contacts
             </caption>
-
+            
             <thead>
                 <tr class="table-row table-row-header">
                     <th class="table-header">ID</th>
@@ -21,7 +21,7 @@
             </thead>
 
             <tbody>
-                {% for contact in contacts %}
+                {% for contact in page_obj %}
 
                     <tr class="table-row">
                         <td class="table-cel"> <a class="table-link" href="{% url 'contact:contact' contact.id %}"> {{ contact.id }} </a></td>
@@ -33,8 +33,13 @@
 
                 {% endfor %}
             </tbody>
+            
+        
+    </div>
+{% else %}
+    <h1>Nenhum contato encontrado</h1>
 
-    </div>    
+{% endif %}      
 
 {% endblock %}
 
