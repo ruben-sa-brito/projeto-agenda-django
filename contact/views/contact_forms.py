@@ -12,7 +12,6 @@ def create(request):
         }
         
         if form.is_valid():
-            print('formulário válido!!')
             form.save()
             return redirect('contact:create')
     
